@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chocolate Criollo</title>
+        <style>
+            .slide {
+                position: relative;
+                box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+                margin-top: 26px;
+            }
+
+            .slide-inner {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                height: calc( 300px + 3em);
+            }
+
+            .slide-open:checked + .slide-item {
+                position: static;
+                opacity: 100;
+            }
+
+            .slide-item {
+                position: absolute;
+                opacity: 0;
+                -webkit-transition: opacity 0.6s ease-out;
+                transition: opacity 0.6s ease-out;
+            }
+
+            .slide-item img {
+                display: block;
+                height: auto;
+                max-width: 100%;
+            }
+
+            .slide-control {
+                background: rgba(0, 0, 0, 0.28);
+                border-radius: 50%;
+                color: #fff;
+                cursor: pointer;
+                display: none;
+                font-size: 40px;
+                height: 40px;
+                line-height: 35px;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translate(0, -50%);
+                cursor: pointer;
+                -ms-transform: translate(0, -50%);
+                transform: translate(0, -50%);
+                text-align: center;
+                width: 40px;
+                z-index: 10;
+            }
+
+            .slide-control.prev {
+                left: 2%;
+            }
+
+            .slide-control.next {
+                right: 2%;
+            }
+
+            .slide-control:hover {
+                background: rgba(0, 0, 0, 0.8);
+                color: #aaaaaa;
+            }
+
+            #slide-1:checked ~ .control-1,
+            #slide-2:checked ~ .control-2,
+            #slide-3:checked ~ .control-3 {
+                display: block;
+            }
+
+            .slide-indicador {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                bottom: 2%;
+                left: 0;
+                right: 0;
+                text-align: center;
+                z-index: 10;
+            }
+
+            .slide-indicador li {
+                display: inline-block;
+                margin: 0 5px;
+            }
+
+            .slide-circulo {
+                color: #828282;
+                cursor: pointer;
+                display: block;
+                font-size: 35px;
+            }
+
+            .slide-circulo:hover {
+                color: #aaaaaa;
+            }
+
+            #slide-1:checked ~ .control-1 ~ .slide-indicador 
+                li:nth-child(1) .slide-circulo,
+            #slide-2:checked ~ .control-2 ~ .slide-indicador 
+                 li:nth-child(2) .slide-circulo,
+            #slide-3:checked ~ .control-3 ~ .slide-indicador 
+                 li:nth-child(3) .slide-circulo {
+                color: #428bca;
+            }
+
+            #titulo {
+                width: 100%;
+                position: absolute;
+                padding: 0px;
+                margin: 0px auto;
+                text-align: center;
+                font-size: 27px;
+                color: rgba(255, 255, 255, 1);
+                font-family: 'Open Sans', sans-serif;
+                z-index: 9999;
+                text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), 
+                    -1px 0px 2px rgba(255, 255, 255, 0);
+            }
+            .box img{
+  width: 100%;
+  height: auto;
+}
+@supports(object-fit: cover){
+    .box img{
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+}
+.foto1 { padding: 26px; margin: 21px; float: left; width: 300px; }
+.foto2 { padding: 26px; margin: 21px; float: left; width: 300px; }
+.foto3 { padding: 20px; margin: 20px; float: left; width: 360px; }
+
+.titulos {text-align: center}
+.titulos3 { text-align : left}
+
+.h { color: #ffffff; }
+
+.productos{ background-color : #FFF0C6 ;}
+.redes{ background-color: #C7AC73 ;}
+.contactenos{ background-color : #FFF0C6 ;}
+.final{ background-color : #C7AC73;}
+        </style>
+
+    </head>
+        <body>
+            <div class="Encabezado">
+                <h1>Chocolate Criollo</h1>
+                <form action="../..form-result.php" method="post" target="_blank">
+                <p><strong>Busqueda</strong>
+                <input type="seach"
+                placeholder="Busqueda">
+                <input type="submit"
+                value="Buscar">
+                </p>
+                </form>
+</div>
+
+                <div class="slide">
+                    <div class="slide-inner">
+                        <input class="slide-open" type="radio" id="slide-1" 
+                             name="slide" aria-hidden="true" hidden="" checked="checked">
+                        <div class="slide-item">
+                            <div class="box img">
+                            <img src="E:\Criollo\imagen/nicarao.jpg">
+                        </div>
+                    </div>
+                        <input class="slide-open" type="radio" id="slide-2" 
+                             name="slide" aria-hidden="true" hidden="">
+                        <div class="slide-item">
+                            <div class="box img">
+                            <img src="E:\Criollo\imagen/la novia de tola.jpg">
+                        </div>
+                        </div>
+                        <input class="slide-open" type="radio" id="slide-3" 
+                             name="slide" aria-hidden="true" hidden="">
+                        <div class="slide-item">
+                            <div class="box img">
+                            <img src="E:\Criollo\imagen/cerro negro.jpg">
+                        </div>
+                        </div>
+                        <label for="slide-3" class="slide-control prev control-1">‹</label>
+                        <label for="slide-2" class="slide-control next control-1">›</label>
+                        <label for="slide-1" class="slide-control prev control-2">‹</label>
+                        <label for="slide-3" class="slide-control next control-2">›</label>
+                        <label for="slide-2" class="slide-control prev control-3">‹</label>
+                        <label for="slide-1" class="slide-control next control-3">›</label>
+                        <ol class="slide-indicador">
+                            <li>
+                                <label for="slide-1" class="slide-circulo">•</label>
+                            </li>
+                            <li>
+                                <label for="slide-2" class="slide-circulo">•</label>
+                            </li>
+                            <li>
+                                <label for="slide-3" class="slide-circulo">•</label>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+        <br>
+        <br>
+        
+        
+        <div class="productos">
+            <h1>___________________________________________________________________________________</h1>
+            <br>
+            <div class="tipos de chocolates">
+                <div class="titulos">
+                <h1>Productos</h1>
+                </div>
+                <br>
+                <h1>___________________________________________________________________________________</h1>
+                </div>
+                </div>
+                <br>
+                <div class="c">
+                <div class="foto3">
+                    <div class="box img">
+                        <div class="foto1">
+                <img src="E:\Criollo\imagen/descarga (1).jfif">
+                </div>
+                </div>
+                <div class="titulos">
+                <h2>Gueguense</h2>
+                </div>
+                <div class="titulos2">
+                <p>
+                    Este chocolate extra amargo y sedoso tiene una suave sensación en boca, un prolongado
+                    sabor de cacao y una terminación frutal y de nueces en el paladar. Está diseñado
+                    especialmente para moldes, pero también puede utilizarse fácilmente para rellenos, glaseados y sorbetes. Su alto contenido de grasa y su textura
+                    suave lo hacen un excelente chocolate multipropósito. Está ligeramente saborizado con
+                    vainilla natural.</p>
+                </div>
+                </div>
+                
+                
+            <div class="foto3">
+                <div class ="box img">
+                    <div class="foto2"> 
+                    <img src="E:\Criollo\imagen/cerro negro.jpg">
+                </div>
+            </div>
+            <div class="titulos">
+                    <h2>Cerro Negro</h2>
+                    </div>
+                    <div class="titulos2">
+                    <p>
+Este chocolate espeso y exquisito tiene un robusto contenido de cacao de 70%. Es
+sumamente aromático y proyecta un sabor frutal y de nueces bien balanceado, con un
+prolongado sabor de cacao. Esta fórmula está diseñada principalmente para elaborar
+mousses, rellenos, ganaches, sorbetes y glaseados, y no se recomienda para moldeo. La fórmula maximiza el sabor natural del grano Carenero Superior, y está
+ligeramente saborizada con vainilla natural.</p> 
+</div>
+</div>
+                    
+                    
+                    <div class="foto3">
+                    <div class="foto1">
+                        <div class="box img">
+                        <img src="E:\Criollo\imagen/nicarao.jpg">
+                    </div>
+                </div>
+                <div class="titulos">
+                        <h2>Nicarao</h2>
+                        </div>
+                        <div class="titulos2">
+                        <p>
+                            Su textura suave provee un balance de todas las cualidades que el grano Carenero Superior
+                            ofrece. Presenta el aroma y sabor de Carenero Superior de una manera sutil y balanceada y
+                            un prolongado sabor de cacao en el paladar. Esta fórmula tiene alto contenido de grasa, y a
+                            la vez que puede usarse en un gran rango de preparaciones. Está saborizado con vainilla natural.</p>
+                            </div>
+                            </div>
+                        <br>
+                        
+                            <div class="h">
+                            <h1>.....</h1>
+                            </div>
+                            </div>
+                        <br>
+                        <div class="foto3">
+                        <div class="foto2">
+                    <div class="box img">
+                        <img src="E:\Criollo\imagen/jacali.png">
+                    </div>
+                </div>
+                <div class="titulos">
+                <h2>Jacali</h2>
+                </div>
+                <div class="titulos2">
+                <p>
+                    Las cualidades aromáticas y de sabor de Carenero Superior están muy presentes en esta
+                    fórmula de chocolate oscuro suave y ligeramente dulce. Los mejores usos para este
+                    chocolate son mousses, ganaches y glaseados, pero con su mediano contenido de grasa, es
+                    posible utilizarlo también para otras preparaciones más líquidas. Saborizado con vainilla
+                    natural.</p>
+                    </div>
+                    </div>
+                
+                <div class="foto3">
+                <div class="foto1">
+                    <div class="box img">
+                    <img src="E:\Criollo\imagen/la novia de tola.jpg">
+                </div>
+            </div>
+            <div class="titulos">
+                    <h2>La novia de Tola</h2>
+                    </div>
+                    <div class="titulos2">
+                    <p>
+                        Las cualidades aromáticas y de sabor de este grano, junto al uso de materias primas de alta
+                        calidad y un proceso industrial de primera categoría, dan origen a este chocolate sedoso y
+                        bien balanceado. Este chocolate con leche, con un alto contenido de cacao, acentúa el sabor
+                        del cacao en vez del resto de los ingredientes de la fórmula, como lo son la leche y el
+                        azúcar.</p> 
+                        </div>
+                        </div>
+                    
+                    <div class="foto3">
+                    <div class="foto2">
+                        <div class="box img">
+                        <img src="E:\Criollo\imagen/icoa.png">
+                        </div>
+                        </div>
+                        <div class="titulos">
+                        <h2>Icoa</h2>
+                        </div>
+                        <div class="titulos2">
+                        <p>Chocolate Blanco
+                            El chocolate blanco ICOA toma su nombre de Icoa-Uru, una mítica diosa indígena adorada
+                            por sus seguidores por siempre estar vestida de blanco, y porque sentían que tenía un alma
+                            blanca. El Icoa se elabora con Manteca de Cacao de Primera Calidad y tiene una textura
+                            suave, lechosa y sedosa, con poco contenido de azúcar, lo que lo hace destacarse de entre
+                            los demás chocolates blancos en el mercado. Saborizado con vainilla natural.</p>
+                        <br>
+                        </div>
+                        </div>
+                        </div>
+                    <br>
+                    <div class="h">
+                    <h6>_______________</h6>
+                    </div>
+                    <div class="redes">
+                    <h1>___________________________________________________________________________________</h1>
+                    <br>
+                            <div class="titulos">
+                                
+                                
+                            <h1>Nuestras Redes Sociales</h1>
+                            </div>
+                            <br>
+                            <h1>___________________________________________________________________________________</h1>
+                            </div>
+                            <br>
+                            <div class="foto3">
+                            <div class="box img">
+                                <div class="titulos">
+                                <h2>Instagram</h2>
+                                </div>
+                        <img src= "E:\Criollo\imagen/instagram.png">
+                    </div>
+                    </div>
+                        
+                        
+                        <div class="foto3">
+                            <div class="box img">
+                                <div class="titulos">
+                                <h2>FaceBook</h2>
+                                </div>
+                        <img src="E:\Criollo\imagen/facebook.png">
+                        </div>
+                        </div>
+                        
+                        
+                        <div class="foto3">
+                            <div class="box img">
+                                <div class="titulos">
+                                <h2>Twitter</h2>
+                                </div>
+                        <img src="E:\Criollo\imagen/twitter.png">
+                        </div>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="h">
+                        <h6>_______________</h6>
+                        </div>
+                        <div class="contactenos">
+                        <h1>___________________________________________________________________________________</h1>
+
+<br>                        <div class="titulos">
+    <h1>Contactenos</h1>
+    <p>Chocolate_criollo@gmail.com</p>
+</div>
+<br>
+<h1>___________________________________________________________________________________</h1>
+</div>  
+<div class="final">
+<div class="datos">
+    <ul>
+        <li><strong>Historia</strong></li>
+        <p>Chocolates Criollo es una empresa nicaragüense que desde su fundación en 1975 se ha
+            especializado en la fabricación de chocolate de la más alta calidad.
+            Al buscar incesantemente la perfección, asociamos y graduamos aromas, texturas y sabores
+            para potenciar el máximo disfrute de nuestro chocolate. La principal materia prima de
+            nuestros productos tiene origen en nuestra tierra y ha sido cultivada con tradición y
+            dedicación por generaciones de pequeños agricultores a quiénes les debemos nuestra razón
+            de ser.</p>
+            <br>
+        <li><strong>Mision</strong></li>
+        <p>Somos una agroindustria dedicada a transformar el mejor cacao del mundo para superar las
+            expectativas de nuestros consumidores.</p>
+            <br>
+        <li><strong>Vision</strong></li>
+        <p>Ser una agroindustria de categoría mundial.</p>
+        <br>
+        <li><strong>Valores</strong></li>
+        <p>Calidad es una actitud que hemos asumido la cual utilizamos como herramienta para
+            garantizar que cada día hagamos nuestro trabajo mejor.
+            Nuestra gente es el bien más valioso de la empresa. Contratamos gente calificada,
+            promovemos activamente su mejoramiento personal y profesional y proporcionamos un
+            ambiente de trabajo que estimula al máximo sus capacidades individuales y colectivas.
+            Conducimos todos nuestros asuntos dentro de los más estrictos parámetros de etica
+            personal y corporativa y exigimos ese compromiso de todos nuestros trabajadores.
+            Ante la responsabilidad que nos han delegado, tenemos el compromiso de mantener un
+            ritmo continuo de crecimiento y desarrollo dentro de los parámetros administrativos
+            
+            más sanos y prudentes, no solo para lograr una diversificación de nuestras actividades, sino
+            para garantizar un adecuado retorno sobre el capital invertido en la empresa.</p>
+            <br>
+    </ul>
+
+</div>
+</div>
+</div>
+        </body>
+</html>
